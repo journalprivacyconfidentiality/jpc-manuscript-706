@@ -1,14 +1,15 @@
-\documentclass[final]{jpcfinal} %%% last changed 2014-08-20
+\documentclass{jpcfinal} %%% last changed 2014-08-20
 
 % JPC Layouting Macros
 % THESE ARE ADDED BY THE EDITORIAL TEAM - NO NEED TO SET HERE
 \newcommand{\doisuffix}{683.reminiscences}
 % \jpcheading{vol}{issue}{year}{notused}{subm}{publ}{rev}{spec_iss}{title}
-\jpcheading{8}{1}{2018}{}{Sept~3, 2018}{Nov, 2018}{}{Issue in honor of S. Fienberg}
+\jpcheading{8}{1}{2018}{}{Dec~20, 2018}{Dec 2018}{}{Issue in honor of S. Fienberg}
 %%% last changed 2018-06-29 =====================================
+\usepackage[sort]{natbib}
 
 %% mandatory lists of keywords
-\keywords{reminiscences, Fienberg}
+\keywords{editorial, relaunch}
 
 %% read in additional TeX-packages or personal macros here:
 %% e.g. \usepackage{tikz}
@@ -18,29 +19,50 @@
 \usepackage{pdfpages}
 \input{jpcboxed.tex}
 
-
+\newcommand{\urlcite}[2]{#2\footnote{\url{#1}}}
 \begin{document}
 
-\title[Reminiscences]{Reminiscences of Steve Fienberg}
+\title[Relaunching JPC]{Relaunching the Journal of Privacy and Confidentiality}
 
-\author{Jerome P. Reiter}	%optional
-\address{Department of Statistical Science, Duke University}	%optional
-\email{jreiter@duke.edu}  %optional
+\author{Cynthia Dwork}	%optional
+\address{Harvard University}	%optional
+\email{dwork@seas.harvard.edu}  %optional
+%\thanks{This research was supported by the National Science Foundation grants SES-1131897 and ACI-1443014.}	%optional
+\author{Lars Vilhuber}	%optional
+\address{Cornell University}	%optional
+\email{lars.vilhuber@cornell.edu}  %optional
 %\thanks{This research was supported by the National Science Foundation grants SES-1131897 and ACI-1443014.}	%optional
 
 \maketitle
+
+
+\section{Improvements}
+
+Until early in 2018, the primary home of the Journal was at Carnegie Mellon University, supported by the university libraries and Managing Editor Kira Bokalders. The submission workflow and the journal itself was hosted on the ``Digital Commons'' platform by \href{https://www.bepress.com}{bepress}. In early 2018, the Journal's editorial board made the decision to move the editorial office to Cornell University, and to address some of the structural issues that the journal had encountered. This section will discuss the technical issues addressed during the move, the next section how the structural issues will be addressed in the coming months and years.
+
+One of the first steps was to identify and adopt a journal-hosting platform. Our first choice was to move to a bepress instance at Cornell University, but the \urlcite{https://web.archive.org/web/20181220151809/https://www.elsevier.com/about/press-releases/corporate/elsevier-acquires-bepress,-a-leading-service-provider-used-by-academic-institutions-to-showcase-their-research}{acquisition of bepress by Elsevier} lead Cornell to reconsider it's longterm plans with bepress. We also considered  \urlcite{http://scholasticahq.com/}{Scholastica’s}  platform for both submission workflow and publication among the commercial solutions. Furthermore, we looked at some of the ``overlay journal'' options, such as \textit{Project Muse} and \urlcite{https://www.episciences.org/}{episciences.org}, both of which leverage open archives such as \urlcite{https://arxiv.org}{arxiv.org} for storing the articles themselves, and only add on a layer of peer-review and virtual republication.\footnote{Scholastica also allows for this type of publication.} Our constraints were a near-total absence of a (long-term) budget (see below),  the need to be accessible in a multi-disciplinary environment, and the ability to be flexible in terms of hosting options in the near future, given the uncertainty surrounding the journal's structure. Ultimately, we chose the \urlcite{https://pkp.sfu.ca/ojs/}{Open Journal System (OJS)}  created and maintained by the \urlcite{https://pkp.sfu.ca/}{Public Knowledge Project}, because it allowed to us to be flexible with the hosting platform --- for now, PKP also provides hosting and technical support, but we can move to a self-hosted instance at any time --- and with the type of inputs we accept from the various disciplines --- it turns out, not every discipline is comfortable with \LaTeX. The ability to modify the platform, if necessary, and to ``export'' our data in an open format was important as well.
+
+There were challenges with the migration: no bepress instance had the same export format, and OJS did not have an importer for bepress packages. We ultimately wrote our own scripts to convert an idiosyncratic export of data and metadata (\url{https://github.com/journalprivacyconfidentiality/jpc-migration}). 
+
+Once we had a platform, we had to populate it. We carried forward much of the descriptive text from the old CMU-hosted platform. Our goal is to have authors handle much of the layouting of the articles, relying on the decade-old promise of using \TeX  \citep{Knuth1986} and \LaTeX \citep{Lamport1986} for distributed typesetting
+
+we have formalized and implemented a few more features of open-access journals:
+\begin{itemize}
+	\item 
+\end{itemize}
+
 %
 % Insert memories here
 %
 %\begin{wrapfigure}{r}[10pt]{3in}
-\begin{figure}[H]
-	\begin{cornerbox}[width=\linewidth]\small\fontfamily{qag}\selectfont
-		
-		\input{Fienberg.tex}
-		
-		\hfill \it Jerry Reiter
-	\end{cornerbox}
-\end{figure}
+%\begin{figure}[H]
+%	\begin{cornerbox}[width=\linewidth]\small\fontfamily{qag}\selectfont
+%		
+%		\input{Fienberg.tex}
+%		
+%		\hfill \it Jerry Reiter
+%	\end{cornerbox}
+%\end{figure}
 %\end{wrapfigure}
 
 %% etc.
@@ -54,5 +76,9 @@
 %% be sure not to issue the \maketitle command twice!
 
 %\includepdf[pages=2,offset=0 0.7in,pagecommand={}]{683-manuscript-test.pdf}
+
+
+\bibliography{paper}
+\bibliographystyle{abbrvnat}
 
 \end{document}
