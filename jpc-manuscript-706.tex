@@ -17,9 +17,12 @@
 \usepackage{natbib}
 \usepackage[ruled]{algorithm2e}
 \usepackage{pdfpages}
+\usepackage{acronym}
 \input{jpcboxed.tex}
+\input{acrodefs.tex}
 
 \newcommand{\urlcite}[2]{#2\footnote{\url{#1}}}
+\newcommand{\urlcitex}[3]{#2\footnote{\href{#1}{#3}}}
 \begin{document}
 
 \title[Relaunching JPC]{Relaunching the Journal of Privacy and Confidentiality}
@@ -38,44 +41,54 @@
 
 \section{Improvements}
 
-Until early in 2018, the primary home of the Journal was at Carnegie Mellon University, supported by the university libraries and Managing Editor Kira Bokalders. The submission workflow and the journal itself was hosted on the ``Digital Commons'' platform by \href{https://www.bepress.com}{bepress}. In early 2018, the Journal's editorial board made the decision to move the editorial office to Cornell University, and to address some of the structural issues that the journal had encountered. This section will discuss the technical issues addressed during the move, the next section how the structural issues will be addressed in the coming months and years.
+Until early in 2018, the primary home of the Journal was at Carnegie Mellon University (CMU), supported by the university libraries and Managing Editor Kira Bokalders. The submission workflow and the journal itself was hosted on the ``Digital Commons'' platform by \href{https://www.bepress.com}{bepress} (called ``Research Showcase'' at CMU). Steve and Kira, with the support of the CMU Libraries, had carried the journal's operations forward in meticulous, reliable, and transparent fashion. However, with Steve's passing, the lack of local support was a matter of concern. In early 2018, the Journal's editorial board made the decision to move the editorial office to Cornell University, and to address some of the structural issues that the journal had encountered. This section will discuss the technical issues addressed during the move, the next section how the structural issues will be addressed in the coming months and years.
 
-One of the first steps was to identify and adopt a journal-hosting platform. Our first choice was to move to a bepress instance at Cornell University, but the \urlcite{https://web.archive.org/web/20181220151809/https://www.elsevier.com/about/press-releases/corporate/elsevier-acquires-bepress,-a-leading-service-provider-used-by-academic-institutions-to-showcase-their-research}{acquisition of bepress by Elsevier} lead Cornell to reconsider it's longterm plans with bepress. We also considered  \urlcite{http://scholasticahq.com/}{Scholastica’s}  platform for both submission workflow and publication among the commercial solutions. Furthermore, we looked at some of the ``overlay journal'' options, such as \textit{Project Muse} and \urlcite{https://www.episciences.org/}{episciences.org}, both of which leverage open archives such as \urlcite{https://arxiv.org}{arxiv.org} for storing the articles themselves, and only add on a layer of peer-review and virtual republication.\footnote{Scholastica also allows for this type of publication.} Our constraints were a near-total absence of a (long-term) budget (see below),  the need to be accessible in a multi-disciplinary environment, and the ability to be flexible in terms of hosting options in the near future, given the uncertainty surrounding the journal's structure. Ultimately, we chose the \urlcite{https://pkp.sfu.ca/ojs/}{Open Journal System (OJS)}  created and maintained by the \urlcite{https://pkp.sfu.ca/}{Public Knowledge Project}, because it allowed to us to be flexible with the hosting platform --- for now, PKP also provides hosting and technical support, but we can move to a self-hosted instance at any time --- and with the type of inputs we accept from the various disciplines --- it turns out, not every discipline is comfortable with \LaTeX. The ability to modify the platform, if necessary, and to ``export'' our data in an open format was important as well.
+One of the first steps was to identify and adopt a journal-hosting platform. Our first choice was to move to a bepress instance at Cornell University, but the \urlcitex{https://web.archive.org/web/20181220151809/https://www.elsevier.com/about/press-releases/corporate/elsevier-acquires-bepress,-a-leading-service-provider-used-by-academic-institutions-to-showcase-their-research}{acquisition of bepress by Elsevier}{https://web.archive.org/web/20181220151809/https://www.elsevier.com/about/press-releases/corporate/elsevier-acquires-bepress\textellipsis} lead Cornell to reconsider it's longterm plans with bepress. We also considered  \urlcite{http://scholasticahq.com/}{Scholastica’s}  platform for both submission workflow and publication among the commercial solutions. Furthermore, we looked at some of the ``overlay journal'' options, such as \textit{Project Muse} and \urlcite{https://www.episciences.org/}{episciences.org}, both of which leverage open archives such as \urlcite{https://arxiv.org}{arxiv.org} for storing the articles themselves, and only add on a layer of peer-review and virtual republication.\footnote{Scholastica also allows for this type of publication.} Our constraints were a near-total absence of a (long-term) budget (see below),  the need to be accessible in a multi-disciplinary environment, and the ability to be flexible in terms of hosting options in the near future, given the uncertainty surrounding the journal's structure. Ultimately, we chose the \urlcite{https://pkp.sfu.ca/ojs/}{Open Journal System (OJS)}  created and maintained by the \urlcite{https://pkp.sfu.ca/}{Public Knowledge Project}, because it allowed to us to be flexible with the hosting platform --- for now, PKP also provides hosting and technical support, but we can move to a self-hosted instance at any time --- and with the type of inputs we accept from the various disciplines --- it turns out, not every discipline is comfortable with \LaTeX. The ability to modify the platform, if necessary, and to ``export'' our data in an open format was important as well.
 
 There were challenges with the migration: no bepress instance had the same export format, and OJS did not have an importer for bepress packages. We ultimately wrote our own scripts to convert an idiosyncratic export of data and metadata (\url{https://github.com/journalprivacyconfidentiality/jpc-migration}). 
 
-Once we had a platform, we had to populate it. We carried forward much of the descriptive text from the old CMU-hosted platform. Our goal is to have authors handle much of the layouting of the articles, relying on the decade-old promise of using \TeX  \citep{Knuth1986} and \LaTeX \citep{Lamport1986} for distributed typesetting
+Once we had a platform, we had to populate it. We carried forward much of the descriptive text from the old CMU-hosted platform. Our goal is to have authors handle much of the layouting of the articles, relying on the decade-old promise of using \TeX~ \citep{Knuth1986} and \LaTeX~ \citep{Lamport1986} for distributed typesetting, thus reducing the need for copy editing. Time will tell if that promise has ever held. We adapted a \LaTeX~ class originally created by the journal ``\urlcite{https://lmcs.episciences.org/}{Logical Methods in Computer Science}'' (many thanks to Lars Birkedal, who gave generously of his time and advice), posted it (\url{https://github.com/journalprivacyconfidentiality/jpc-style}), and hoped for the best. We developed a workaround for authors submitting in Word, whereby we simply format a Word document with broad margins, allowing us to generate a PDF file that in turn is imported into a styled \LaTeX~ wrapper. 
 
-we have formalized and implemented a few more features of open-access journals:
-\begin{itemize}
-	\item 
-\end{itemize}
+\begin{wrapfigure}{r}[10pt]{2.2in}
+	%\begin{figure}[H]
+	\begin{cornerbox}[width=2in]
+		%		
+		\includegraphics[width=1.5in]{tmpl-images/JPC_4.jpg}
+		%		
+		%		\hfill \it Jerry Reiter
+		\caption{Our new logo}
+		
+	\end{cornerbox}
+	%\end{figure}
+\end{wrapfigure}
+We also formalized and implemented a few more features of open-access journals: We registered an \ac{ISSN} with the Library of Congress (for reference, it is 2575-8527). Furthermore, we registered with \urlcite{https://www.crossref.org/}{Crossref}, and registered \ac{DOI} for all previously published articles (for reference, our \ac{DOI} prefix is 10.29012).  We registered a domain (\href{https://www.journalprivacyconfidentiality.org}{journalprivacyconfidentiality.org}), which, if you are reading this, you have found. We created a logo, thanks to the efforts of our editorial board member, Alan Karr. And we selected the open-access license under which henceforth the journal would publish articles, re-affirming but modernizing the original stance of the founders that the journal should be open, accessible, and free to read.
 
-%
-% Insert memories here
-%
-%\begin{wrapfigure}{r}[10pt]{3in}
-%\begin{figure}[H]
-%	\begin{cornerbox}[width=\linewidth]\small\fontfamily{qag}\selectfont
-%		
-%		\input{Fienberg.tex}
-%		
-%		\hfill \it Jerry Reiter
-%	\end{cornerbox}
-%\end{figure}
-%\end{wrapfigure}
 
-%% etc.
 
-%% required for running head on odd and even pages, use suitable
-%% abbreviations in case of long titles and many authors:
+With those foundations in place, we migrated the journal to the new platform in February 2018. 
+Each of the prior issues now has a mention acknowledging the former hosting at CMU.%
+\footnote{
+	For instance, the first issue of the journal carries the mention ``This issue was first published at Research Showcase @ CMU (\url{http://repository.cmu.edu/jpc/vol1/iss1/}). Research Showcase @ CMU is Carnegie Mellon University's institutional repository.'' The first issue is now accessible at \url{https://doi.org/10.29012/jpc.v1i1}.}
+The old website now carried a mention, redirecting to the new website. Starting in July 2018, the old website actively redirected to the new website.%
+\footnote{As of December 2018, the redirects have stopped, and there is no longer a server responding at the old web address.} 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% the abstract has to PRECEDE the command \maketitle:
-%% be sure not to issue the \maketitle command twice!
+\section{The Next Steps}
 
-%\includepdf[pages=2,offset=0 0.7in,pagecommand={}]{683-manuscript-test.pdf}
+With this issue, the efforts to migrate and stabilize the journal have born fruit. The future success of the journal hinge, of course, critically on the quality of the contributions of its authors, which in turn are disseminated and read by its readers.
+
+Organizationally, the journal continues to be managed by an editorial board, currently consisting of Editor-in-Chief 
+Cynthia Dwork, Editors 
+John M. Abowd, 
+Kobbi Nissim, 
+Alan F. Karr, and 
+Managing Editor
+Lars Vilhuber. In this editorial, we have re-affirmed our commitment to open access and integrity. As we move forward, we will instantiate that commitment in various more formal ways. First, we are looking into putting the Journal's institutional structure onto more a more persistent foundation. We are gathering  input from editors at other open access journals (in particular our colleagues at \urlcite{https://www.sociologicalscience.com/}{Sociological Science}), and we will be making decisions about such a structure in 2019. We have started the process to trademark the Journal's name and logo.
+
+Part of the considerations are financial, as providing open access is ``free as in beer'' but not cheap. This may include addressing, in a broadly acceptable and equitable fashion, the potential for article processing charges, which are common in some disciplines, and completely absent in others. Currently, costs are covered through a generous subsidy by John Abowd's 
+ \urlcite{https://blogs.cornell.edu/abowd/edmund-ezra-day/}{Edmund Ezra Day Chair}  at Cornell University, for three years. 
+ 
+Our history of unbiased editors and referees speaks for itself, but does not always speak to new potential authors. We are reviewing our policies, making explicit policies so far implicit, and posting these on our website over the course of the next 3-6 months. Registration in the \urlcite{https://doaj.org/}{Directory of Open Access Journals} and membership in \urlcite{https://publicationethics.org/}{Committee on Publication Ethics (COPE)} are goals for 2019, and amount to a peer-review of the journal's policies. 
 
 
 \bibliography{paper}
