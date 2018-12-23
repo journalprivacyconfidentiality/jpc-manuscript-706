@@ -1,0 +1,43 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Dwork(2018)]{DworkEditorial}
+C.~Dwork.
+\newblock The future of the {Journal of Privacy and Confidentiality}.
+\newblock \emph{Journal of Privacy and Confidentiality}, 8\penalty0 (1), dec
+  2018.
+\newblock \doi{10.29012/jpc.705}.
+\newblock URL \url{https://doi.org/10.29012/jpc.705}.
+
+\bibitem[Knuth(1986)]{Knuth1986}
+D.~E. Knuth.
+\newblock \emph{The {{TeXbook}}}.
+\newblock Number~A in Computers \& typesetting. {Addison-Wesley}, Reading,
+  Mass, 1986.
+\newblock ISBN 978-0-201-13447-6 978-0-201-13448-3.
+
+\bibitem[Lamport(1986)]{Lamport1986}
+L.~Lamport.
+\newblock \emph{{{LATEX}}: A Document Preparation System}.
+\newblock {Addison-Wesley Pub. Co}, Reading, Mass, 1986.
+\newblock ISBN 978-0-201-15790-1.
+
+\bibitem[Slavkovi\'c and Vilhuber(2018)]{SesaLarsEditorial}
+A.~B. Slavkovi\'c and L.~Vilhuber.
+\newblock Remembering {Stephen Fienberg}.
+\newblock \emph{Journal of Privacy and Confidentiality}, 8\penalty0 (1), dec
+  2018.
+\newblock \doi{10.29012/jpc.685}.
+\newblock URL \url{https://doi.org/10.29012/jpc.685}.
+
+\bibitem[{Sociological Science}(2018)]{SociologicalScience2018}
+{Sociological Science}.
+\newblock Manuscript {{Preparation}}, 2018.
+\newblock URL
+  \url{https://www.sociologicalscience.com/for-authors/manuscript-preparation/}.
+
+\end{thebibliography}
